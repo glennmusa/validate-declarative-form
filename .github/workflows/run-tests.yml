@@ -1,6 +1,6 @@
 ---
 
-name: super-linter
+name: run-tests
 
 on:
   pull_request:
@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: run-tests
+      - name: validate-declarative-form-test
         run: python -m unittest validate_declarative_form_test.py -v
         shell: bash
