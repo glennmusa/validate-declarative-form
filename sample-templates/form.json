@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2021-09-09/uiFormDefinition.schema.json",
+  "view": {
+    "kind": "Form",
+    "properties": {
+      "title": "A sample Declarative Form",
+      "steps": [
+        {
+          "name": "fizzbuzz",
+          "label": "fizzbuzz",
+          "elements": [
+            {
+              "name": "fizz",
+              "label": "fizz",
+              "type": "Microsoft.Common.TextBox"
+            },
+            {
+              "name": "buzz",
+              "label": "buzz",
+              "type": "Microsoft.Common.TextBox"
+            }
+          ]
+        }
+      ]
+    },
+    "outputs": {
+      "kind": "Subscription",
+      "location": "East US",
+      "subscriptionId": "01234567-8901-2345-6789-012345678901",
+      "parameters": {
+        "fizz": "[steps('fizzbuzz').fizz]",
+        "buzz": "[steps('fizzbuzz').buzz]"
+      }
+    }
+  }
+}
