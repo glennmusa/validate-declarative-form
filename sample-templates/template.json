@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "fizz": {
+      "type": "string",
+      "defaultValue": "fizz",
+      "metadata": {
+        "description": "fizz"
+      }
+    },
+    "buzz": {
+      "type": "string",
+      "metadata": {
+        "description": "buzz"
+      }
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {}
+}
