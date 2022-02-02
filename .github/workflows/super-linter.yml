@@ -3,7 +3,6 @@
 name: super-linter
 
 on:
-  push:
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -23,5 +22,4 @@ jobs:
           VALIDATE_MARKDOWN: true
           VALIDATE_PYTHON_PYLINT: true
           DEFAULT_BRANCH: main
-          FILTER_REGEX_EXCLUDE: ".github/dependabot.yml"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
