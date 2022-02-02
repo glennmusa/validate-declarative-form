@@ -8,6 +8,14 @@ A Python command-line utility for validating that the outputs of a given Declara
 Declarative Form Output => ARM Template Parameters
 ```
 
+## What is a Declarative Form?
+
+Developers describe custom Azure Portal user interfaces for an ARM deployment templates as JSON.
+
+For many years, [createUiDefinition.json](https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/create-uidefinition-overview) was the schema and mechanism for creating those custom Azure Portal user interfaces.
+
+[Declarative Form](https://github.com/Azure/portaldocs/blob/1fe62c54c1e87aadade061bab70e810efb22713a/portal-sdk/generated/portalfx-cuid.md#introduction-to-declarative-form) is createUiDefinition.json's successor.
+
 ## Running the Validator
 
 Run the `--help` command to see the required arguments:
