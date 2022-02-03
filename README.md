@@ -10,18 +10,17 @@ Declarative Form Output => ARM Template Parameters
 
 ## What is a Declarative Form?
 
-Developers describe custom Azure Portal user interfaces for an ARM deployment templates as JSON.
+Developers describe custom Azure Portal user interfaces for ARM deployment templates as JSON.
 
-For many years, [createUiDefinition.json](https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/create-uidefinition-overview) was the schema and mechanism for creating those custom Azure Portal user interfaces.
+For many years, [Create UI Definition](https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/create-uidefinition-overview) (also known as `createUiDefinition.json` and `CUID`) was both the JSON schema and named mechanism for creating custom Azure Portal user interfaces.
 
-[Declarative Form](https://github.com/Azure/portaldocs/blob/1fe62c54c1e87aadade061bab70e810efb22713a/portal-sdk/generated/portalfx-cuid.md#introduction-to-declarative-form) is createUiDefinition.json's successor.
+[Declarative Form](https://github.com/Azure/portaldocs/blob/1fe62c54c1e87aadade061bab70e810efb22713a/portal-sdk/generated/portalfx-cuid.md#introduction-to-declarative-form) is Create UI Definition's successor.
 
-## Running the Validator
+## Running the Validator locally
 
 Run the `--help` command to see the required arguments:
 
 ```plaintext
-cd src/bicep/form/validation
 python validate_declarative_form.py -h
 ```
 
@@ -33,11 +32,22 @@ usage: validate_declarative_form.py [-h] form_template_path deployment_template_
 Validate a Declarative Form UI template against an ARM Deployment Template.
 ```
 
-So, execute it like:
+And can execute it like:
 
 ```plaintext
-# cd src/bicep/form/validation
 python validate_declarative_form.py sample-templates/form.json sample-templates/template.json
+```
+
+## Running the Validator in an automated workflow
+
+I could use the validator on a \*nix agent with `python3` by downloading the validator script from this repository, then passing my form template and deployment template as arguments to that script:
+
+```plaintext
+curl -s \
+  -o validate_declarative_form.py \
+  -L https://raw.githubusercontent.com/glennmusa/validate-declarative-form/main/validate_declarative_form.py
+
+python validate_declarative_form.py path/to/a/form.json path/to/a/template.json
 ```
 
 ### Success
@@ -45,7 +55,7 @@ python validate_declarative_form.py sample-templates/form.json sample-templates/
 If successful, you'll find this in the stdout:
 
 ```plaintext
-Success. The Declarative Form UI template <path> contains outputs that map to the ARM deployment template <path> parameters.
+Success!
 ```
 
 ### Failure
@@ -66,13 +76,25 @@ Form output 'fizz2' not found in deployment template parameters
 File could not be found: samples/form2.json
 ```
 
+## Debugging source or running tests
+
+This repository defines a [dev container](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers/) that has everything you need to get up and running quickly with all the tools and configuration you need already installed configured.
+
+It's really simple to get started now in your browser on a [GitHub Codespace](https://docs.github.com/en/codespaces/getting-started/quickstart):
+
+- on this repository, click the green `<> Code` button then `New Codespace`
+
+If you prefer local development, you can use this same dev container in Visual Studio Code:
+
+- [Visual Studio Code with Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
 ## Debugging the Validator
 
-### Debugging in the devcontainer
+### Debugging in the dev container
 
 There's `launch.json` editor settings specified that pass command line arguments to any active Python script:
 
-- Open `validate_declarative_form.py` in the devcontainer
+- Open `validate_declarative_form.py` in the dev container
 - set a breakpoint
 - press `F5` to start debugging
 
@@ -80,7 +102,7 @@ See <https://code.visualstudio.com/docs/python/debugging/> for more information 
 
 ## Testing the Validator
 
-### Testing in the devcontainer
+### Testing in the dev container
 
 There's `settings.json` editor settings specified that inform where Python unit tests can be discovered:
 
@@ -94,7 +116,6 @@ There's `settings.json` editor settings specified that inform where Python unit 
 You can run the unit tests by calling the `unittest` module from Python like:
 
 ```plaintext
-# cd src/bicep/form/validation
 python -m unittest validate_declarative_form_test.py -v
 ```
 
