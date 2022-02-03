@@ -90,11 +90,11 @@ If you prefer local development, you can use this same dev container in Visual S
 
 ## Debugging the Validator
 
-### Debugging in the devcontainer
+### Debugging in the dev container
 
 There's `launch.json` editor settings specified that pass command line arguments to any active Python script:
 
-- Open `validate_declarative_form.py` in the devcontainer
+- Open `validate_declarative_form.py` in the dev container
 - set a breakpoint
 - press `F5` to start debugging
 
@@ -102,7 +102,7 @@ See <https://code.visualstudio.com/docs/python/debugging/> for more information 
 
 ## Testing the Validator
 
-### Testing in the devcontainer
+### Testing in the dev container
 
 There's `settings.json` editor settings specified that inform where Python unit tests can be discovered:
 
