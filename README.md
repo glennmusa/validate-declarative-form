@@ -76,6 +76,18 @@ Form output 'fizz2' not found in deployment template parameters
 File could not be found: samples/form2.json
 ```
 
+## Debugging source or running tests
+
+This repository defines a [dev container](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers/) that has everything you need to get up and running quickly with all the tools and configuration you need already installed configured.
+
+It's really simple to get started now in your browser on a [GitHub Codespace](https://docs.github.com/en/codespaces/getting-started/quickstart):
+
+- on this repository, click the green `<> Code` button then `New Codespace`
+
+If you prefer local development, you can use this same dev container in Visual Studio Code:
+
+- [Visual Studio Code with Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
 ## Debugging the Validator
 
 ### Debugging in the devcontainer
