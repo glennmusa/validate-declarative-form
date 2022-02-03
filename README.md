@@ -40,7 +40,7 @@ python validate_declarative_form.py sample-templates/form.json sample-templates/
 
 ## Running the Validator in an automated workflow
 
-I could use the validator on a \*nix agent with `python3` by downloading the validator script from this repository, then passing my form template and deployment template as arguments to that script: 
+I could use the validator on a \*nix agent with `python3` by downloading the validator script from this repository, then passing my form template and deployment template as arguments to that script:
 
 ```plaintext
 curl -s \
