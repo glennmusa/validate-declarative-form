@@ -14,7 +14,7 @@ Developers describe custom Azure Portal user interfaces for ARM deployment templ
 
 For many years, [Create UI Definition](https://docs.microsoft.com/en-us/azure/azure-resource-manager/managed-applications/create-uidefinition-overview) (also known as `createUiDefinition.json` and `CUID`) was both the JSON schema and named mechanism for creating custom Azure Portal user interfaces.
 
-[Declarative Form](https://github.com/Azure/portaldocs/blob/1fe62c54c1e87aadade061bab70e810efb22713a/portal-sdk/generated/portalfx-cuid.md#introduction-to-declarative-form) is Create UI Definition's successor.
+[Declarative Form](https://github.com/Azure/portaldocs/blob/1fe62c54c1e87aadade061bab70e810efb22713a/portal-sdk/generated/portalfx-cuid.md#introduction-to-declarative-form) (also known as `DUX`) is Create UI Definition's successor.
 
 ## Running the Validator locally
 
